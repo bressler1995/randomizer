@@ -28,7 +28,7 @@ function requestcats() {
     };
 
         xhttp.open("GET", "https://catfact.ninja/facts/random?animal_type=cat&amount=2", true);
-        xhttp.setRequestHeader('Accept: application/json');
+        xhttp.setRequestHeader("Content-type", "application/json");
         xhttp.send();
 
 }
