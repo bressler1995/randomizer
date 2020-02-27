@@ -22,12 +22,12 @@ function requestcats() {
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
-            random_cat_facts = this.responseText;
+            random_cat_facts = JSON.parse(this.responseText);
             console.log(random_cat_facts);
         }
     };
 
-        xhttp.open("GET", "https://catfact.ninja/facts?limit=1", true);
+        xhttp.open("GET", "https://catfact.ninja/facts?limit=8", true);
         xhttp.setRequestHeader("Content-type", "application/json");
         xhttp.send();
 
