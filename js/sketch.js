@@ -1,5 +1,5 @@
 //travel to the stars on a wacky adventure with elon musk
-let random_cat_facts;
+let initialresponse;
 
 function setup() {
     //lets make it responsive
@@ -22,8 +22,8 @@ function requestcats() {
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
-            random_cat_facts = JSON.parse(this.responseText);
-            console.log(random_cat_facts);
+            initialresponse = JSON.parse(this.responseText);
+            console.log(initialresponse.data);
         }
     };
 
