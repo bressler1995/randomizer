@@ -1,6 +1,7 @@
 //travel to the stars on a wacky adventure with elon musk
 let initialresponse;
 let catfacts = [];
+let catsset = false;
 
 function setup() {
     //lets make it responsive
@@ -9,6 +10,16 @@ function setup() {
 
 function draw() {
     background(0);
+
+    if(catsset == true) {
+        fill(255);
+        textFont('Arial');
+        textSize(14);
+
+        for(i = 0; i < catfacts.length; i++) {
+            text(catfacts[i], 0, 20 * i, windowWidth, (20 * i) + 14);
+        }
+    }
 }
 
 function windowResized() {
@@ -27,8 +38,9 @@ function requestcats() {
             // console.log(initialresponse.data);
             for (i = 0; i < initialresponse.data.length; i++) {
                 catfacts.push(initialresponse.data[i].fact);
-                alert(initialresponse.data[i].fact);
             }
+
+            catsset = true;
         }
     };
 
