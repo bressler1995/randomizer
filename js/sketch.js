@@ -20,6 +20,7 @@ function keyPressed() {
 
 function requestcats() {
     var xhttp = new XMLHttpRequest();
+    xhttp.withCredentials = true;
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             random_cat_facts = this.responseText;
