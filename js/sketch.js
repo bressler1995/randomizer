@@ -17,7 +17,7 @@ function draw() {
         textSize(14);
 
         for(i = 0; i < catfacts.length; i++) {
-            text(catfacts[i], 0, 20 * i, windowWidth, (20 * i) + 14);
+            text(catfacts[i], 0, 20 * i, windowWidth, (20 * i) + 28);
         }
     }
 }
