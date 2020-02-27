@@ -27,7 +27,9 @@ function requestcats() {
         }
     };
 
-    xhttp.open("POST", "https://cat-fact.herokuapp.com/facts", true);
-    xhttp.send();
+    if("withCredentials" in request) {
+        xhttp.open("GET", "https://cat-fact.herokuapp.com/facts", true);
+        xhttp.send();
+    }
 
 }
