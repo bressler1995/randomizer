@@ -27,7 +27,9 @@ function windowResized() {
 }
 
 function keyPressed() {
-    requestcats();
+    if(catsset == false) {
+        requestcats();
+    }
 }
 
 function requestcats() {
