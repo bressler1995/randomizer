@@ -20,7 +20,6 @@ function keyPressed() {
 
 function requestcats() {
     var xhttp = new XMLHttpRequest();
-    xhttp.withCredentials = true;
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             random_cat_facts = this.responseText;
@@ -28,10 +27,8 @@ function requestcats() {
         }
     };
 
-    if("withCredentials" in xhttp) {
         xhttp.open("GET", "https://catfact.ninja/facts/random?animal_type=cat&amount=2", true);
         xhttp.setRequestHeader('Accept: application/json');
         xhttp.send();
-    }
 
 }
