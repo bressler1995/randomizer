@@ -30,6 +30,7 @@ function requestcats() {
 
     if("withCredentials" in xhttp) {
         xhttp.open("GET", "https://catfact.ninja/facts/random?animal_type=cat&amount=2", true);
+        xhttp.setRequestHeader('Accept: application/json');
         xhttp.send();
     }
 
