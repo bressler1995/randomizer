@@ -29,7 +29,7 @@ function requestcats() {
     };
 
     if("withCredentials" in xhttp) {
-        xhttp.open("GET", "https://cat-fact.herokuapp.com/facts/random", true);
+        xhttp.open("GET", "https://cat-fact.herokuapp.com/facts/random?animal_type=cat&amount=2", true);
         xhttp.send();
     }
 
