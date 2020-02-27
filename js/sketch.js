@@ -27,8 +27,8 @@ function requestcats() {
             // console.log(initialresponse.data);
             for (i = 0; i < initialresponse.data.length; i++) {
                 catfacts.push(initialresponse.data[i].fact);
+                alert(initialresponse.data[i].fact);
             }
-            console.log(catfacts);
         }
     };
 
