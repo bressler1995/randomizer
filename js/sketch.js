@@ -9,7 +9,7 @@ function setup() {
 }
 
 function draw() {
-    background(0);
+    background('#380572');
 
     if(catsset == true) {
         fill(255);
