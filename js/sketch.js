@@ -1,35 +1,32 @@
 //travel to the stars on a wacky adventure with elon musk
 let initialresponse;
 let catfacts = [];
+let catpics = [];
 let catsset = false;
+let appstate = 0;
+
+function preload() {
+    catpics[0] = loadImage('img/spacecat.jpg')
+}
 
 function setup() {
     //lets make it responsive
     createCanvas(windowWidth, windowHeight);
+    requestcats();
 }
 
 function draw() {
     background('#380572');
-
-    if(catsset == true) {
-        fill(255);
-        textFont('Arial');
-        textSize(14);
-
-        for(i = 0; i < catfacts.length; i++) {
-            text(catfacts[i], 0, 20 * i, windowWidth, (20 * i) + 28);
+    if(catsset) {
+        if (appstate == 0) {
+            image(catpics[0], 0, 0);
         }
     }
+    
 }
 
 function windowResized() {
     resizeCanvas(windowWidth, windowHeight);
-}
-
-function keyPressed() {
-    if(catsset == false) {
-        requestcats();
-    }
 }
 
 function requestcats() {
@@ -40,14 +37,15 @@ function requestcats() {
             // console.log(initialresponse.data);
             for (i = 0; i < initialresponse.data.length; i++) {
                 catfacts.push(initialresponse.data[i].fact);
+                console.log(initialresponse.data[i].fact);
             }
 
             catsset = true;
         }
     };
 
-        xhttp.open("GET", "https://catfact.ninja/facts?limit=8", true);
-        xhttp.setRequestHeader("Content-type", "application/json");
-        xhttp.send();
+    xhttp.open("GET", "https://catfact.ninja/facts?limit=8", true);
+    xhttp.setRequestHeader("Content-type", "application/json");
+    xhttp.send();
 
 }
