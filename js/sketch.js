@@ -43,25 +43,25 @@ function draw() {
             push();
             image(catpics[1], windowWidth / 2, windowHeight / 2, 400, 266);
             fill(255);
-            text(catfacts[catsrandom[0]], 50, windowHeight - 70, windowWidth - 100, windowHeight -30);
+            text(catfacts[catsrandom[0]], 50, windowHeight - 70, windowWidth - 200, windowHeight -30);
             pop();
         } else if(appstate == 2) {
             push();
             image(catpics[2], windowWidth / 2, windowHeight / 2, 400, 271);
             fill(255);
-            text(catfacts[catsrandom[1]], 50, windowHeight - 50, windowWidth - 100, windowHeight -10);
+            text(catfacts[catsrandom[1]], 50, windowHeight - 70, windowWidth - 200, windowHeight -10);
             pop();
         } else if(appstate == 3) {
             push();
             image(catpics[3], windowWidth / 2, windowHeight / 2, 400, 266);
             fill(255);
-            text(catfacts[catsrandom[2]], 50, windowHeight - 50, windowWidth - 100, windowHeight -10);
+            text(catfacts[catsrandom[2]], 50, windowHeight - 70, windowWidth - 200, windowHeight -10);
             pop();
         } else if(appstate == 4) {
             push();
             image(catpics[4], windowWidth / 2, windowHeight / 2, 400, 266);
             fill(255);
-            text(catfacts[catsrandom[3]], 50, windowHeight - 50, windowWidth - 100, windowHeight -10);
+            text(catfacts[catsrandom[3]], 50, windowHeight - 70, windowWidth - 200, windowHeight -10);
             pop();
         }
     }
