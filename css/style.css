@@ -23,6 +23,7 @@ canvas {
   font-size:14px;
   line-height: 18px;
   text-transform: uppercase;
+  font-weight: 400;
 }
 
 #proceed_opt:hover {
