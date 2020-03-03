@@ -34,3 +34,16 @@ canvas {
 .hide_button {
   display: none !important;
 }
+
+.cat_title {
+  display: block;
+  position:fixed;
+  margin:0;
+  font-family: 'Montserrat', sans-serif;
+  font-size:36px;
+  line-height:38px;
+  top:50px;
+  left:50%;
+  transform: translateX(-50%);
+  color:#FFF;
+}

@@ -32,6 +32,9 @@ function setup() {
     catbutton = createButton('Start Chatting With Cats');
     catbutton.id('proceed_opt');
     catbutton.mousePressed(start_catting);
+
+    cattitle = createP("CatRoulette&trade;")
+    cattitle.class('cat_title');
 }
 
 function draw() {
@@ -46,8 +49,9 @@ function draw() {
             textLeading(24);
             textAlign(CENTER);
             text("BIO", 50, windowHeight - 100, windowWidth - 100, windowHeight - 80);
-            pop();
         }
+
+        pop();
         
         push();
         fill(255);
@@ -58,33 +62,23 @@ function draw() {
         imageMode(CENTER);
 
         if (appstate == 0) {
-            push();
             image(catpics[0], windowWidth / 2, windowHeight / 2, 400, 263);
-            pop();
         } else if(appstate == 1) {
-            push();
             image(catpics[1], windowWidth / 2, windowHeight / 2, 400, 266);
             text(catfacts[catsrandom[0]], 50, windowHeight - 75, windowWidth - 100, windowHeight -30);
-            pop();
         } else if(appstate == 2) {
-            push();
             image(catpics[2], windowWidth / 2, windowHeight / 2, 400, 271);
             text(catfacts[catsrandom[1]], 50, windowHeight - 75, windowWidth - 100, windowHeight -30);
-            pop();
         } else if(appstate == 3) {
-            push();
             image(catpics[3], windowWidth / 2, windowHeight / 2, 400, 266);
             text(catfacts[catsrandom[2]], 50, windowHeight - 75, windowWidth - 100, windowHeight -30);
-            pop();
         } else if(appstate == 4) {
-            push();
             image(catpics[4], windowWidth / 2, windowHeight / 2, 400, 266);
             text(catfacts[catsrandom[3]], 50, windowHeight - 75, windowWidth - 100, windowHeight -30);
-            pop();
         }
-    }
 
-    pop();
+        pop();
+    }
     
 }
 
