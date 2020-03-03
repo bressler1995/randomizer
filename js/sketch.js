@@ -6,7 +6,7 @@ let catpics_url = ['img/spacecat.jpg', 'img/orangecat.jpg', 'img/wildcat.jpg', '
 let catsrandom = [];
 let catsset = false;
 let appstate = 0;
-let button;
+let catbutton, catfont;
 
 function preload() {
     catpics[0] = loadImage(catpics_url[0]);
@@ -14,60 +14,54 @@ function preload() {
     catpics[2] = loadImage(catpics_url[2]);
     catpics[3] = loadImage(catpics_url[3]);
     catpics[4] = loadImage(catpics_url[4]);
+
+    catfont = loadFont('fonts/Montserrat-Regular.ttf');
 }
 
 function setup() {
     //lets make it responsive
     createCanvas(windowWidth, windowHeight);
     requestcats();
-    button = createButton('Start Chatting With Cats');
-    button.id('proceed_opt');
-    button.mousePressed(start_catting);
+    catbutton = createButton('Start Chatting With Cats');
+    catbutton.id('proceed_opt');
+    catbutton.mousePressed(start_catting);
 }
 
 function draw() {
     background('#380572');
     if(catsset) {
+        textFont(catfont);
+        textSize(15);
+        textLeading(19)
+        imageMode(CENTER);
+
         if (appstate == 0) {
             push();
-            imageMode(CENTER);
             image(catpics[0], windowWidth / 2, windowHeight / 2, 400, 263);
             pop();
         } else if(appstate == 1) {
             push();
-            imageMode(CENTER);
             image(catpics[1], windowWidth / 2, windowHeight / 2, 400, 266);
             fill(255);
-            textFont('Arial');
-            textSize(16);
-            text(catfacts[catsrandom[0]], 20, windowHeight - 50, windowWidth - 20, windowHeight -10);
+            text(catfacts[catsrandom[0]], 50, windowHeight - 70, windowWidth - 100, windowHeight -30);
             pop();
         } else if(appstate == 2) {
             push();
-            imageMode(CENTER);
             image(catpics[2], windowWidth / 2, windowHeight / 2, 400, 271);
             fill(255);
-            textFont('Arial');
-            textSize(16);
-            text(catfacts[catsrandom[1]], 20, windowHeight - 50, windowWidth - 20, windowHeight -10);
+            text(catfacts[catsrandom[1]], 50, windowHeight - 50, windowWidth - 100, windowHeight -10);
             pop();
         } else if(appstate == 3) {
             push();
-            imageMode(CENTER);
             image(catpics[3], windowWidth / 2, windowHeight / 2, 400, 266);
             fill(255);
-            textFont('Arial');
-            textSize(16);
-            text(catfacts[catsrandom[2]], 20, windowHeight - 50, windowWidth - 20, windowHeight -10);
+            text(catfacts[catsrandom[2]], 50, windowHeight - 50, windowWidth - 100, windowHeight -10);
             pop();
         } else if(appstate == 4) {
             push();
-            imageMode(CENTER);
             image(catpics[4], windowWidth / 2, windowHeight / 2, 400, 266);
             fill(255);
-            textFont('Arial');
-            textSize(16);
-            text(catfacts[catsrandom[3]], 20, windowHeight - 50, windowWidth - 20, windowHeight -10);
+            text(catfacts[catsrandom[3]], 50, windowHeight - 50, windowWidth - 100, windowHeight -10);
             pop();
         }
     }
@@ -108,7 +102,7 @@ function requestcats() {
 
 function start_catting() {
     appstate = 1;
-    button.class('hide_button');
+    catbutton.class('hide_button');
     loopcats();
 }
 
