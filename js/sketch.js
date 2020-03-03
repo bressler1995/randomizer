@@ -122,5 +122,5 @@ function loopcats() {
         } else if(appstate == 3) {
             appstate++;
         }
-    }, 500);
+    }, 300);
 }
