@@ -42,8 +42,8 @@ function draw() {
 
         if(appstate > 0) {
             textFont(msemi);
-            textSize(16);
-            textLeading(18);
+            textSize(18);
+            textLeading(24);
             text("BIO", 50, windowHeight - 100, 100, windowHeight - 80);
             pop();
         }
