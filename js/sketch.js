@@ -6,7 +6,7 @@ let catpics_url = ['img/spacecat.jpg', 'img/orangecat.jpg', 'img/wildcat.jpg', '
 let catsrandom = [];
 let catsset = false;
 let appstate = 0;
-let catbutton
+let catbutton, cattitle;
 let mregular, mmedium, msemi;
 
 function preload() {
@@ -44,7 +44,8 @@ function draw() {
             textFont(msemi);
             textSize(18);
             textLeading(24);
-            text("BIO", 50, windowHeight - 100, 100, windowHeight - 80);
+            textAlign(CENTER);
+            text("BIO", 50, windowHeight - 100, windowWidth - 100, windowHeight - 80);
             pop();
         }
         
@@ -52,7 +53,8 @@ function draw() {
         fill(255);
         textFont(mregular);
         textSize(15);
-        textLeading(19)
+        textLeading(19);
+        textAlign(CENTER);
         imageMode(CENTER);
 
         if (appstate == 0) {
