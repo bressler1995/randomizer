@@ -20,7 +20,7 @@ function draw() {
     if(catsset) {
         if (appstate == 0) {
             imageMode(CENTER);
-            image(catpics[0], 0, 0);
+            image(catpics[0], 500, 500, windowWidth / 2, windowHeight / 2);
         }
     }
     
