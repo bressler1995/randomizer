@@ -15,9 +15,9 @@ function setup() {
     //lets make it responsive
     createCanvas(windowWidth, windowHeight);
     requestcats();
-    button = createButton('click me');
-  button.position(19, 19);
-  button.mousePressed(changeBG);
+    button = createButton('Start Chatting With Cats');
+    button.id('proceed_opt');
+    button.mousePressed(start_catting);
 }
 
 function draw() {
@@ -53,5 +53,9 @@ function requestcats() {
     xhttp.open("GET", "https://catfact.ninja/facts?limit=8", true);
     xhttp.setRequestHeader("Content-type", "application/json");
     xhttp.send();
+
+}
+
+function start_catting() {
 
 }

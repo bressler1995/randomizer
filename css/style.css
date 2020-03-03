@@ -5,3 +5,14 @@ html, body {
 canvas {
   display: block;
 }
+
+#proceed_opt {
+  cursor: pointer;
+  display: block;
+  position: relative;
+  padding:15px;
+  padding-left:35px;
+  padding-right:35px;
+  background: transparent;
+  border: 2px solid #FFF;
+}
