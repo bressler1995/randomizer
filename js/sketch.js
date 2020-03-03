@@ -2,13 +2,14 @@
 let initialresponse;
 let catfacts = [];
 let catpics = [];
-let catpics_url = ['img/spacecat.jpg'];
+let catpics_url = ['img/spacecat.jpg', 'img/orangecat.jpg'];
 let catsset = false;
 let appstate = 0;
+let button;
 
 function preload() {
     catpics[0] = loadImage(catpics_url[0]);
-    catpics[1] = loadImage(catpics_url[0]);
+    catpics[1] = loadImage(catpics_url[1]);
 }
 
 function setup() {
@@ -50,12 +51,18 @@ function requestcats() {
         }
     };
 
-    xhttp.open("GET", "https://catfact.ninja/facts?limit=8", true);
+    xhttp.open("GET", "https://catfact.ninja/facts?limit=12", true);
     xhttp.setRequestHeader("Content-type", "application/json");
     xhttp.send();
 
 }
 
 function start_catting() {
+    appstate = 1;
+    button.class('hide_button');
+    loopcats();
+}
+
+function loopcats() {
 
 }
