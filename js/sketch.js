@@ -6,7 +6,8 @@ let catpics_url = ['img/spacecat.jpg', 'img/orangecat.jpg', 'img/wildcat.jpg', '
 let catsrandom = [];
 let catsset = false;
 let appstate = 0;
-let catbutton, catfont;
+let catbutton
+let mregular, mmedium, msemi;
 
 function preload() {
     // catpics[0] = loadImage(catpics_url[0]);
@@ -19,7 +20,9 @@ function preload() {
         catpics[i] = loadImage(catpics_url[i]);
     }
 
-    catfont = loadFont('fonts/Montserrat-Regular.ttf');
+    mregular = loadFont('fonts/Montserrat-Regular.ttf');
+    //mmedium = loadFont('fonts/Montserrat-Medium.ttf');
+    msemi = loadFont('fonts/Montserrat-SemiBold.ttf');
 }
 
 function setup() {
@@ -34,7 +37,20 @@ function setup() {
 function draw() {
     background('#380572');
     if(catsset) {
-        textFont(catfont);
+        push();
+        fill(255);
+
+        if(appstate > 0) {
+            textFont(msemi);
+            textSize(16);
+            textLeading(18);
+            text("BIO", 50, windowHeight - 100, 100, windowHeight - 80);
+            pop();
+        }
+        
+        push();
+        fill(255);
+        textFont(mregular);
         textSize(15);
         textLeading(19)
         imageMode(CENTER);
@@ -46,29 +62,27 @@ function draw() {
         } else if(appstate == 1) {
             push();
             image(catpics[1], windowWidth / 2, windowHeight / 2, 400, 266);
-            fill(255);
             text(catfacts[catsrandom[0]], 50, windowHeight - 75, windowWidth - 100, windowHeight -30);
             pop();
         } else if(appstate == 2) {
             push();
             image(catpics[2], windowWidth / 2, windowHeight / 2, 400, 271);
-            fill(255);
             text(catfacts[catsrandom[1]], 50, windowHeight - 75, windowWidth - 100, windowHeight -30);
             pop();
         } else if(appstate == 3) {
             push();
             image(catpics[3], windowWidth / 2, windowHeight / 2, 400, 266);
-            fill(255);
             text(catfacts[catsrandom[2]], 50, windowHeight - 75, windowWidth - 100, windowHeight -30);
             pop();
         } else if(appstate == 4) {
             push();
             image(catpics[4], windowWidth / 2, windowHeight / 2, 400, 266);
-            fill(255);
             text(catfacts[catsrandom[3]], 50, windowHeight - 75, windowWidth - 100, windowHeight -30);
             pop();
         }
     }
+
+    pop();
     
 }
 
