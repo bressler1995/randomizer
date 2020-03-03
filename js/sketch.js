@@ -1,18 +1,23 @@
-//travel to the stars on a wacky adventure with elon musk
+//CAT ROULETTE
 let initialresponse;
 let catfacts = [];
 let catpics = [];
+let catpics_url = ['img/spacecat.jpg'];
 let catsset = false;
 let appstate = 0;
 
 function preload() {
-    catpics[0] = loadImage('img/spacecat.jpg')
+    catpics[0] = loadImage(catpics_url[0]);
+    catpics[1] = loadImage(catpics_url[0]);
 }
 
 function setup() {
     //lets make it responsive
     createCanvas(windowWidth, windowHeight);
     requestcats();
+    button = createButton('click me');
+  button.position(19, 19);
+  button.mousePressed(changeBG);
 }
 
 function draw() {
@@ -20,7 +25,7 @@ function draw() {
     if(catsset) {
         if (appstate == 0) {
             imageMode(CENTER);
-            image(catpics[0], windowWidth / 2, windowHeight / 2, 600, 395);
+            image(catpics[0], windowWidth / 2, windowHeight / 2, 400, 263);
         }
     }
     
