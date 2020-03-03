@@ -2,18 +2,22 @@
 let initialresponse;
 let catfacts = [];
 let catpics = [];
-let catpics_url = ['img/spacecat.jpg', 'img/orangecat.jpg', 'img/wildcat.jpg', 'img/yawningcat.jpg', 'img/laptopcat.gif'];
+let catpics_url = ['img/spacecat.jpg', 'img/orangecat.jpg', 'img/wildcat.jpg', 'img/yawningcat.jpg', 'img/laptopcat.gif', 'img/ceilingcat.jpg'];
 let catsrandom = [];
 let catsset = false;
 let appstate = 0;
 let catbutton, catfont;
 
 function preload() {
-    catpics[0] = loadImage(catpics_url[0]);
-    catpics[1] = loadImage(catpics_url[1]);
-    catpics[2] = loadImage(catpics_url[2]);
-    catpics[3] = loadImage(catpics_url[3]);
-    catpics[4] = loadImage(catpics_url[4]);
+    // catpics[0] = loadImage(catpics_url[0]);
+    // catpics[1] = loadImage(catpics_url[1]);
+    // catpics[2] = loadImage(catpics_url[2]);
+    // catpics[3] = loadImage(catpics_url[3]);
+    // catpics[4] = loadImage(catpics_url[4]);
+
+    for(i = 0; i < catpics_url.length; i++) {
+        catpics[i] = loadImage(catpics_url[i]);
+    }
 
     catfont = loadFont('fonts/Montserrat-Regular.ttf');
 }
