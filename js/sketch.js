@@ -19,6 +19,7 @@ function draw() {
     background('#380572');
     if(catsset) {
         if (appstate == 0) {
+            imageMode(CENTER);
             image(catpics[0], 0, 0);
         }
     }
