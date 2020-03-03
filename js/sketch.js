@@ -39,7 +39,7 @@ function draw() {
             image(catpics[1], windowWidth / 2, windowHeight / 2, 400, 266);
             fill(255);
             textFont('Arial');
-            textSize(14);
+            textSize(16);
             text(catfacts[catsrandom[0]], 20, windowHeight - 50, windowWidth - 20, windowHeight -10);
             pop();
         } else if(appstate == 2) {
@@ -48,7 +48,7 @@ function draw() {
             image(catpics[2], windowWidth / 2, windowHeight / 2, 400, 271);
             fill(255);
             textFont('Arial');
-            textSize(14);
+            textSize(16);
             text(catfacts[catsrandom[1]], 20, windowHeight - 50, windowWidth - 20, windowHeight -10);
             pop();
         } else if(appstate == 3) {
@@ -57,7 +57,7 @@ function draw() {
             image(catpics[3], windowWidth / 2, windowHeight / 2, 400, 266);
             fill(255);
             textFont('Arial');
-            textSize(14);
+            textSize(16);
             text(catfacts[catsrandom[2]], 20, windowHeight - 50, windowWidth - 20, windowHeight -10);
             pop();
         } else if(appstate == 4) {
@@ -66,7 +66,7 @@ function draw() {
             image(catpics[4], windowWidth / 2, windowHeight / 2, 400, 266);
             fill(255);
             textFont('Arial');
-            textSize(14);
+            textSize(16);
             text(catfacts[catsrandom[3]], 20, windowHeight - 50, windowWidth - 20, windowHeight -10);
             pop();
         }
