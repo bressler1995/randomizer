@@ -6,7 +6,7 @@ let catpics_url = ['img/spacecat.jpg', 'img/orangecat.jpg', 'img/wildcat.jpg', '
 let catsrandom = [];
 let catsset = false;
 let appstate = 0;
-let catbutton, cattitle, catmessage_opt;
+let catbutton, cattitle, catmessage_opt, catwin;
 let mregular, mmedium, msemi;
 
 function preload() {
@@ -38,6 +38,10 @@ function setup() {
 
     catmessage_opt = createButton('<i class="fas fa-comment-dots"></i>');
     catmessage_opt.class('catmessage_opt');
+    catmessage_opt.mousePressed(chatcat);
+
+    catwin = createDiv('');
+    catwin.class('catwin');
 }
 
 function draw() {
@@ -137,4 +141,10 @@ function loopcats() {
             appstate++;
         }
     }, 300);
+}
+
+function chatcat() {
+    if(catwin.hasClass('showwin') == false) {
+        catwin.addClass('showwin');
+    }
 }

@@ -73,3 +73,31 @@ canvas {
 .show_opt {
   display: block !important;
 }
+
+.catwin {
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  display: block;
+  position: fixed;
+  width: 100%;
+  max-width:500px;
+  background-color: #1d023d;
+  top:50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%) scale(0.7);
+  visibility: hidden;
+  opacity: 0;
+  padding:30px;
+  /* margin-left:30px;
+  margin-right:30px; */
+  box-sizing: border-box;
+}
+
+.showwin {
+  visibility: visible !important;
+  opacity: 1 !important;
+  transform: translateX(-50%) translateY(-50%) scale(1) !important;
+}
