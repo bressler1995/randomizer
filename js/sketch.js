@@ -147,7 +147,7 @@ function loopcats() {
         } else if(appstate == 3) {
             appstate++;
         }
-    }, 300);
+    }, 200);
 }
 
 function chatcat() {
