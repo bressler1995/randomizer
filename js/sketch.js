@@ -28,10 +28,10 @@ function preload() {
 function setup() {
     //lets make it responsive
     createCanvas(windowWidth, windowHeight);
-    requestcats();
+    // requestcats();
     catbutton = createButton('Start Chatting With Cats');
     catbutton.id('proceed_opt');
-    catbutton.mousePressed(start_catting);
+    catbutton.mousePressed(requestcats);
 
     cattitle = createP("CatRoulette&trade;")
     cattitle.class('cat_title');
@@ -110,7 +110,10 @@ function requestcats() {
             }
 
             catsset = true;
-
+            appstate = 1;
+            catbutton.class('hide_button');
+            catmessage_opt.addClass('show_opt');
+            loopcats();
             
         }
     };
@@ -119,13 +122,6 @@ function requestcats() {
     xhttp.setRequestHeader("Content-type", "application/json");
     xhttp.send();
 
-}
-
-function start_catting() {
-    appstate = 1;
-    catbutton.class('hide_button');
-    catmessage_opt.addClass('show_opt');
-    loopcats();
 }
 
 function loopcats() {
