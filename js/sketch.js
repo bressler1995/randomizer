@@ -2,7 +2,7 @@
 let initialresponse;
 let catfacts = [];
 let catpics = [];
-let catpics_url = ['img/spacecat.jpg', 'img/orangecat.jpg', 'img/wildcat.jpg', 'img/yawningcat.jpg', 'img/laptopcat.gif', 'img/ceilingcat.jpg'];
+let catpics_url = ['img/spacecat.jpg', 'img/orangecat.jpg', 'img/wildcat.jpg', 'img/yawningcat.jpg', 'img/laptopcat.gif', 'img/ceilingcat.jpg', 'img/fatcat.jpg'];
 let catsrandom = [], randompics = [];
 let catsset = false;
 let appstate = 0;
@@ -70,16 +70,16 @@ function draw() {
     if (appstate == 0) {
         image(catpics[0], windowWidth / 2, windowHeight / 2, 400, 263);
     } else if(appstate == 1) {
-        image(catpics[1], windowWidth / 2, windowHeight / 2, 400, 266);
+        image(catpics[randompics[0]], windowWidth / 2, windowHeight / 2, 400, 266);
         text(catfacts[catsrandom[0]], 50, windowHeight - 75, windowWidth - 100, windowHeight -30);
     } else if(appstate == 2) {
-        image(catpics[2], windowWidth / 2, windowHeight / 2, 400, 271);
+        image(catpics[randompics[1]], windowWidth / 2, windowHeight / 2, 400, 271);
         text(catfacts[catsrandom[1]], 50, windowHeight - 75, windowWidth - 100, windowHeight -30);
     } else if(appstate == 3) {
-        image(catpics[3], windowWidth / 2, windowHeight / 2, 400, 266);
+        image(catpics[randompics[2]], windowWidth / 2, windowHeight / 2, 400, 266);
         text(catfacts[catsrandom[2]], 50, windowHeight - 75, windowWidth - 100, windowHeight -30);
     } else if(appstate == 4) {
-        image(catpics[4], windowWidth / 2, windowHeight / 2, 400, 266);
+        image(catpics[randompics[3]], windowWidth / 2, windowHeight / 2, 400, 266);
         text(catfacts[catsrandom[3]], 50, windowHeight - 75, windowWidth - 100, windowHeight -30);
     }
 
@@ -104,7 +104,9 @@ function requestcats() {
 
             for (i = 0; i < 4; i++) {
                 catsrandom[i] = round(random(0, catfacts.length - 1));
-                console.log("Number " + (i + 1) + ":" + catsrandom[i]);
+                randompics[i] = round(random(0, catpics.length - 1));
+                console.log("Fact " + (i + 1) + ":" + catsrandom[i]);
+                console.log("Pic " + (i + 1) + ":" + catsrandom[i]);
             }
 
             catsset = true;
