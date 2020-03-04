@@ -87,7 +87,7 @@ canvas {
   width: 100%;
   max-width:768px;
   height:400px;
-  background-color: #230054;
+  background-color: #1f0049;
   top:50%;
   left: 50%;
   transform: translateX(-50%) translateY(-50%) scale(0.2);
