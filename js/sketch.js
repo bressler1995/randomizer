@@ -46,46 +46,44 @@ function setup() {
 
 function draw() {
     background('#380572');
-    if(catsset) {
-        push();
-        fill(255);
+    push();
+    fill(255);
 
-        if(appstate > 0) {
-            textFont(msemi);
-            textSize(18);
-            textLeading(24);
-            textAlign(CENTER);
-            text("BIO", 50, windowHeight - 100, windowWidth - 100, windowHeight - 80);
-        }
-
-        pop();
-        
-        push();
-        fill(255);
-        textFont(mregular);
-        textSize(15);
-        textLeading(19);
+    if(appstate > 0) {
+        textFont(msemi);
+        textSize(18);
+        textLeading(24);
         textAlign(CENTER);
-        imageMode(CENTER);
-
-        if (appstate == 0) {
-            image(catpics[0], windowWidth / 2, windowHeight / 2, 400, 263);
-        } else if(appstate == 1) {
-            image(catpics[1], windowWidth / 2, windowHeight / 2, 400, 266);
-            text(catfacts[catsrandom[0]], 50, windowHeight - 75, windowWidth - 100, windowHeight -30);
-        } else if(appstate == 2) {
-            image(catpics[2], windowWidth / 2, windowHeight / 2, 400, 271);
-            text(catfacts[catsrandom[1]], 50, windowHeight - 75, windowWidth - 100, windowHeight -30);
-        } else if(appstate == 3) {
-            image(catpics[3], windowWidth / 2, windowHeight / 2, 400, 266);
-            text(catfacts[catsrandom[2]], 50, windowHeight - 75, windowWidth - 100, windowHeight -30);
-        } else if(appstate == 4) {
-            image(catpics[4], windowWidth / 2, windowHeight / 2, 400, 266);
-            text(catfacts[catsrandom[3]], 50, windowHeight - 75, windowWidth - 100, windowHeight -30);
-        }
-
-        pop();
+        text("BIO", 50, windowHeight - 100, windowWidth - 100, windowHeight - 80);
     }
+
+    pop();
+        
+    push();
+    fill(255);
+    textFont(mregular);
+    textSize(15);
+    textLeading(19);
+    textAlign(CENTER);
+    imageMode(CENTER);
+
+    if (appstate == 0) {
+        image(catpics[0], windowWidth / 2, windowHeight / 2, 400, 263);
+    } else if(appstate == 1) {
+        image(catpics[1], windowWidth / 2, windowHeight / 2, 400, 266);
+        text(catfacts[catsrandom[0]], 50, windowHeight - 75, windowWidth - 100, windowHeight -30);
+    } else if(appstate == 2) {
+        image(catpics[2], windowWidth / 2, windowHeight / 2, 400, 271);
+        text(catfacts[catsrandom[1]], 50, windowHeight - 75, windowWidth - 100, windowHeight -30);
+    } else if(appstate == 3) {
+        image(catpics[3], windowWidth / 2, windowHeight / 2, 400, 266);
+        text(catfacts[catsrandom[2]], 50, windowHeight - 75, windowWidth - 100, windowHeight -30);
+    } else if(appstate == 4) {
+        image(catpics[4], windowWidth / 2, windowHeight / 2, 400, 266);
+        text(catfacts[catsrandom[3]], 50, windowHeight - 75, windowWidth - 100, windowHeight -30);
+    }
+
+    pop();
     
 }
 
