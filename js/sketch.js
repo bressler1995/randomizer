@@ -109,6 +109,7 @@ function requestcats() {
 
                 for(i2 = 0; i2 < temporaryrandom.length; i2++) {
                     if(temporaryrandom[i2] == randompics[i]) {
+                        console.log("duplicate found... regenerating...");
                         randompics[i] = round(random(0, catpics.length - 1));
                     }
                 }
