@@ -3,7 +3,7 @@ let initialresponse;
 let catfacts = [];
 let catpics = [];
 let catpics_url = ['img/spacecat.jpg', 'img/orangecat.jpg', 'img/wildcat.jpg', 'img/yawningcat.jpg', 'img/laptopcat.gif', 'img/ceilingcat.jpg'];
-let catsrandom = [];
+let catsrandom = [], randompics = [];
 let catsset = false;
 let appstate = 0;
 let catbutton, cattitle, catmessage_opt, catwin;
