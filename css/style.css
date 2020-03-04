@@ -83,7 +83,7 @@ canvas {
   display: block;
   position: fixed;
   width: 100%;
-  max-width:500px;
+  max-width:768px;
   background-color: #1d023d;
   top:50%;
   left: 50%;
