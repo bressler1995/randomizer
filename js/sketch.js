@@ -106,16 +106,17 @@ function requestcats() {
             for (i = 0; i < 4; i++) {
                 catsrandom[i] = round(random(0, catfacts.length - 1));
                 randompics[i] = round(random(0, catpics.length - 1));
+
+                for(i2 = 0; i2 < temporaryrandom.length; i2++) {
+                    if(temporaryrandom[i2] == randompics[i]) {
+                        randompics[i] = round(random(0, catpics.length - 1));
+                    }
+                }
+
                 temporaryrandom.push(randompics[i]);
                 console.log("Fact " + (i + 1) + ":" + catsrandom[i]);
                 console.log("Pic " + (i + 1) + ":" + catsrandom[i]);
 
-                for(i2 = 0; i2 < temporaryrandom.length; i2++) {
-                    if(temporaryrandom[i] == randompics[i]) {
-                        randompics[i] = round(random(0, catpics.length - 1));
-                        temporaryrandom[i] = -1;
-                    }
-                }
             }
 
             catsset = true;
