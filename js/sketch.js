@@ -6,7 +6,7 @@ let catpics_url = ['img/spacecat.jpg', 'img/orangecat.jpg', 'img/wildcat.jpg', '
 let catsrandom = [];
 let catsset = false;
 let appstate = 0;
-let catbutton, cattitle;
+let catbutton, cattitle, catmessage_opt;
 let mregular, mmedium, msemi;
 
 function preload() {
@@ -35,6 +35,9 @@ function setup() {
 
     cattitle = createP("CatRoulette&trade;")
     cattitle.class('cat_title');
+
+    catmessage_opt = createButton('<i class="fas fa-comment-dots"></i>');
+    catmessage_opt.class('catmessage_opt');
 }
 
 function draw() {
@@ -117,6 +120,7 @@ function requestcats() {
 function start_catting() {
     appstate = 1;
     catbutton.class('hide_button');
+    catmessage_opt.addClass('show_opt');
     loopcats();
 }
 

@@ -26,7 +26,7 @@ canvas {
   font-weight: 700;
 }
 
-#proceed_opt:hover {
+#proceed_opt:hover, #proceed_opt:active {
   background-color: #FFF;
   color: #380572;
 }
@@ -46,4 +46,30 @@ canvas {
   left:50%;
   transform: translateX(-50%);
   color:#FFF;
+}
+
+.catmessage_opt {
+  cursor: pointer;
+  display: none;
+  position: fixed;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  top: 50px;
+  right: 50px;
+  background-color: #FFF;
+  color: #380572;
+  font-size: 18px;
+  line-height: 50px;
+  text-align: center;
+  border:none;
+  outline: 0;
+}
+
+.catmessage_opt:hover {
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.show_opt {
+  display: block !important;
 }
