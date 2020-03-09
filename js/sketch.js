@@ -12,8 +12,8 @@ let appstate = 0, maxcats = 7, loadlimit = 100;
 let catbutton, catmessage_opt;
 let catwin, chat_button;
 //Dimensions
-let catwidth = [400, 400, 400, 400, 300, 460, 450, 400, 400, 400, 400, 400, 400, 400], 
-catheight = [263, 266, 270, 266, 300, 262, 253, 278, 266, 317, 266, 273, 266, 287];
+let catdimensions = [[400, 400, 400, 400, 300, 460, 450, 400, 400, 400, 400, 400, 400, 400], 
+[263, 266, 270, 266, 300, 262, 253, 278, 266, 317, 266, 273, 266, 287]];
 //Fonts
 let mregular, mmedium, msemi;
 
@@ -25,8 +25,8 @@ function preload() {
     // catpics[4] = loadImage(catpics_url[4]);
 
     console.log("Cat Pic URLs: " + catpics_url.length);
-    console.log("Cat Widths: " + catwidth.length);
-    console.log("Cat Heights: " + catheight.length);
+    console.log("Cat Widths: " + catdimensions[0].length);
+    console.log("Cat Heights: " + catdimensions[1].length);
 
     for(i = 0; i < catpics_url.length; i++) {
         catpics[i] = loadImage(catpics_url[i]);
@@ -70,7 +70,7 @@ function draw() {
         textSize(15);
         textLeading(21);
         textAlign(CENTER);
-        image(catpics[randompics[appstate - 1]], windowWidth / 2, windowHeight / 2, catwidth[randompics[appstate - 1]], catheight[randompics[appstate - 1]]);
+        image(catpics[randompics[appstate - 1]], windowWidth / 2, windowHeight / 2, catdimensions[0][randompics[appstate - 1]], catdimensions[1][randompics[appstate - 1]]);
         text(catfacts[catsrandom[appstate - 1]], 70, windowHeight - 85, windowWidth - 140, windowHeight -30);
         pop();
 
@@ -177,5 +177,13 @@ function chatcat() {
 }
 
 function sendtocat() {
+    
+}
 
+function addchat(whoami) {
+    if(whoami == "you") {
+
+    } else if(whoami == "cat") {
+
+    }
 }
