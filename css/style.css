@@ -6,6 +6,15 @@ canvas {
   display: block;
 }
 
+button {
+  transform-origin: center center;
+  -webkit-transition: transform 0.3s ease;
+  -moz-transition: transform 0.3s ease;
+  -ms-transition: transform 0.3s ease;
+  -o-transition: transform 0.3s ease;
+  transition: transform 0.3s ease;
+}
+
 #proceed_opt {
   cursor: pointer;
   display: block;
@@ -16,8 +25,10 @@ canvas {
   padding:15px;
   padding-left:35px;
   padding-right:35px;
-  background: transparent;
-  border: 2px solid #FFF;
+  background: #40c2ff;
+  border:0;
+  /* border: 2px solid #FFF; */
+  border-radius: 3px;
   color: #FFF;
   font-family: 'Montserrat', sans-serif;
   font-size:14px;
@@ -27,8 +38,9 @@ canvas {
 }
 
 #proceed_opt:hover, #proceed_opt:active {
-  background-color: #FFF;
-  color: #380572;
+  background-color: #5eccff;
+  color: #FFF;
+  transform: translateX(-50%) scale(0.9);
 }
 
 .hide_button {
@@ -40,8 +52,8 @@ canvas {
   position:fixed;
   margin:0;
   font-family: 'Montserrat', sans-serif;
-  font-size:36px;
-  line-height:38px;
+  font-size:38px;
+  line-height:40px;
   top:50px;
   left:50%;
   transform: translateX(-50%);
@@ -52,22 +64,24 @@ canvas {
   cursor: pointer;
   display: none;
   position: fixed;
-  width: 50px;
-  height: 50px;
+  width: 70px;
+  height: 70px;
   border-radius: 50%;
-  top: 50px;
+  top: 38px;
   right: 50px;
-  background-color: #FFF;
-  color: #380572;
-  font-size: 18px;
-  line-height: 50px;
+  background-color: #40c2ff;
+  color: #FFF;
+  font-size: 24px;
+  line-height: 70px;
   text-align: center;
   border:none;
   outline: 0;
 }
 
-.catmessage_opt:hover {
-  background-color: rgba(255, 255, 255, 0.8);
+.catmessage_opt:hover, .catmessage_opt:active {
+  background-color: #5eccff;
+  color:#FFF;
+  transform: scale(0.9);
 }
 
 .show_opt {
@@ -90,14 +104,50 @@ canvas {
   width: 100%;
   max-width:920px;
   height:100%;
-  max-height:430px;
+  max-height: 430px;
   background-color: rgba(22, 22, 22, 0.96);
   top:50%;
   left: 50%;
   transform: translateX(-50%) translateY(-50%) scale(0.2);
   padding:30px;
   box-sizing: border-box;
+  overflow: auto;
   border-radius: 5px;
+  z-index:100;
+}
+
+.catwin_top {
+  display: block;
+  float:left;
+  position: relative;
+  width:100%;
+  height:50px;
+  padding:15px;
+  line-height: 50px;
+  background-color: transparent;
+  box-sizing: border-box;
+}
+
+.catwin_content {
+  display: block;
+  float: left;
+  position: relative;
+  width: 100%;
+  height:calc(100% - 100px);
+  background-color: transparent;
+  box-sizing: border-box;
+}
+
+.catwin_inputbar {
+  display:block;
+  float: left;
+  position: relative;
+  width: 100%;
+  height: 50px;
+  padding:15px;
+  line-height: 50px;
+  background-color: transparent;
+  box-sizing: border-box;
 }
 
 .showwin {

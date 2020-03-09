@@ -1,13 +1,20 @@
 //CAT ROULETTE
 let initialresponse;
+//Data Essentials
 let catfacts = [];
 let catpics = [];
 let catpics_url = ['img/spacecat.jpg', 'img/orangecat.jpg', 'img/wildcat.jpg', 'img/yawningcat.jpg', 'img/laptopcat.gif', 'img/ceilingcat.jpg', 'img/fatcat.jpg', 'img/mow.jpg', 'img/jumpingcats.jpg', 'img/angrycat.jpg', 'img/shycat.jpg', 'img/exoticcat.jpg', 'img/derpcat.jpg', 'img/wonderingcat.jpg'];
+//Randomized Arrays
 let catsrandom = [], randompics = [];
-let catsset = false;
-let appstate = 0, maxcats = 7;
-let catbutton, cattitle, catmessage_opt, catwin;
-let catwidth = [400, 400, 400, 400, 300, 460, 450, 400, 400, 400, 400, 400, 400, 400], catheight = [263, 266, 270, 266, 300, 262, 253, 278, 266, 317, 266, 273, 266, 287];
+//App Globals
+let appstate = 0, maxcats = 7, loadlimit = 50;
+//Elements
+let catbutton, cattitle, catmessage_opt;
+let catwin, catwin_top, catwin_content, catwin_inputbar;
+//Dimensions
+let catwidth = [400, 400, 400, 400, 300, 460, 450, 400, 400, 400, 400, 400, 400, 400], 
+catheight = [263, 266, 270, 266, 300, 262, 253, 278, 266, 317, 266, 273, 266, 287];
+//Fonts
 let mregular, mmedium, msemi;
 
 function preload() {
@@ -45,12 +52,14 @@ function setup() {
     catmessage_opt.class('catmessage_opt');
     catmessage_opt.mousePressed(chatcat);
 
-    catwin = createDiv('');
-    catwin.class('catwin');
+    catwin = select("#catwin");
+    catwin_top = select("#catwin_top");
+    catwin_content = select("#catwin_content");
+    catwin_inputbar = select("#catwin_inputbar");
 }
 
 function draw() {
-    background('#380572');
+    background('#ff3d3d');
     fill(255);
     imageMode(CENTER);
 
@@ -72,10 +81,10 @@ function draw() {
 
         push();
         textFont(msemi);
-        textSize(18);
-        textLeading(24);
+        textSize(20);
+        textLeading(26);
         textAlign(CENTER);
-        text("BIO", 50, windowHeight - 100, windowWidth - 100, windowHeight - 80);
+        text("BIO", 50, windowHeight - 105, windowWidth - 100, windowHeight - 80);
         pop();
         
         
@@ -108,7 +117,7 @@ function windowResized() {
 }
 
 function requestcats() {
-    var xhttp = new XMLHttpRequest();
+    let xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             initialresponse = JSON.parse(this.responseText);
@@ -127,7 +136,6 @@ function requestcats() {
 
             }
 
-            catsset = true;
             appstate = 1;
             catbutton.class('hide_button');
             catmessage_opt.addClass('show_opt');
@@ -136,7 +144,7 @@ function requestcats() {
         }
     };
 
-    xhttp.open("GET", "https://catfact.ninja/facts?limit=50", true);
+    xhttp.open("GET", "https://catfact.ninja/facts?limit=" + loadlimit.toString(), true);
     xhttp.setRequestHeader("Content-type", "application/json");
     xhttp.send();
 
@@ -145,6 +153,7 @@ function requestcats() {
 function loopcats() {
     setTimeout(function(){
 
+        //Also keeping for now
         // if(appstate == 1) {
         //     appstate++;
         //     loopcats();
