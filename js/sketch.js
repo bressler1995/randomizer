@@ -10,7 +10,7 @@ let catsrandom = [], randompics = [];
 let appstate = 0, maxcats = 7, loadlimit = 100;
 //Elements
 let catbutton, catmessage_opt;
-let catwin, chat_button;
+let catwin, chat_input, chat_button;
 //Dimensions
 let catdimensions = [[400, 400, 400, 400, 300, 460, 450, 400, 400, 400, 400, 400, 400, 400], 
 [263, 266, 270, 266, 300, 262, 253, 278, 266, 317, 266, 273, 266, 287]];
@@ -48,6 +48,7 @@ function setup() {
     catmessage_opt.mousePressed(chatcat);
 
     catwin = select("#catwin");
+    chat_input = select("#chat_input");
 
     chat_button = select("#chat_button");
     chat_button.mousePressed(sendtocat);
@@ -177,13 +178,20 @@ function chatcat() {
 }
 
 function sendtocat() {
-    
+    addchat("you", chat_input.value());
+    chat_input.value('');
+    setTimeout(function(){
+        addchat("cat", catfacts[round(random(0, catfacts.length - 1))]);
+    }, 1000);
 }
 
-function addchat(whoami) {
+function addchat(whoami, words) {
+    // let tempchat = createP(words);
     if(whoami == "you") {
-
+        
     } else if(whoami == "cat") {
 
     }
+
+    alert(words);
 }
