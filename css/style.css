@@ -121,7 +121,7 @@ button {
   transform: translateX(-50%) translateY(-50%) scale(0.2);
   padding:30px;
   box-sizing: border-box;
-  overflow: auto;
+  /* overflow: hidden; */
   border-radius: 5px;
   z-index:100;
 }
@@ -284,6 +284,29 @@ button {
   object-fit:cover;
   border-radius:3px;
   border:0;
+}
+
+.catwin_close {
+  cursor:pointer;
+  display: block;
+  position: absolute;
+  width:30px;
+  height:30px;
+  border:none;
+  outline:0;
+  border-radius:50%;
+  right:-15px;
+  top:-15px;
+  z-index:200;
+  background: #f1f1f1;
+  color:#333;
+  text-align: center;
+  line-height:30px;
+}
+
+.catwin_close:hover, .catwin_close:active {
+  transform: scale(0.9);
+  opacity: 0.95;
 }
 
 /* .topbar {
