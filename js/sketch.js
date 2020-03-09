@@ -2,11 +2,12 @@
 let initialresponse;
 let catfacts = [];
 let catpics = [];
-let catpics_url = ['img/spacecat.jpg', 'img/orangecat.jpg', 'img/wildcat.jpg', 'img/yawningcat.jpg', 'img/laptopcat.gif', 'img/ceilingcat.jpg', 'img/fatcat.jpg'];
+let catpics_url = ['img/spacecat.jpg', 'img/orangecat.jpg', 'img/wildcat.jpg', 'img/yawningcat.jpg', 'img/laptopcat.gif', 'img/ceilingcat.jpg', 'img/fatcat.jpg', 'img/mow.jpg', 'img/jumpingcats.jpg', 'img/angrycat.jpg', 'img/shycat.jpg', 'img/exoticcat.jpg'];
 let catsrandom = [], randompics = [];
 let catsset = false;
-let appstate = 0;
+let appstate = 0, maxcats = 7;
 let catbutton, cattitle, catmessage_opt, catwin;
+let catwidth = [400, 400, 400, 400, 300, 460, 450, 400, 400, 400, 400, 400], catheight = [263, 266, 270, 266, 300, 262, 253, 278, 266, 317, 266, 273];
 let mregular, mmedium, msemi;
 
 function preload() {
@@ -46,44 +47,55 @@ function setup() {
 
 function draw() {
     background('#380572');
-    push();
     fill(255);
+    imageMode(CENTER);
 
-    if(appstate > 0) {
+    if(appstate == 0) {
+        push();
+       
+
+        image(catpics[0], windowWidth / 2, windowHeight / 2, 400, 263);
+        pop();
+    } else if(appstate > 0) {
+        push();
+        textFont(mregular);
+        textSize(15);
+        textLeading(19);
+        textAlign(CENTER);
+        image(catpics[randompics[appstate - 1]], windowWidth / 2, windowHeight / 2, catwidth[randompics[appstate - 1]], catheight[randompics[appstate - 1]]);
+        text(catfacts[catsrandom[appstate - 1]], 50, windowHeight - 75, windowWidth - 100, windowHeight -30);
+        pop();
+
+        push();
         textFont(msemi);
         textSize(18);
         textLeading(24);
         textAlign(CENTER);
         text("BIO", 50, windowHeight - 100, windowWidth - 100, windowHeight - 80);
-    }
-
-    pop();
+        pop();
         
-    push();
-    fill(255);
-    textFont(mregular);
-    textSize(15);
-    textLeading(19);
-    textAlign(CENTER);
-    imageMode(CENTER);
-
-    if (appstate == 0) {
-        image(catpics[0], windowWidth / 2, windowHeight / 2, 400, 263);
-    } else if(appstate == 1) {
-        image(catpics[randompics[0]], windowWidth / 2, windowHeight / 2, 400, 266);
-        text(catfacts[catsrandom[0]], 50, windowHeight - 75, windowWidth - 100, windowHeight -30);
-    } else if(appstate == 2) {
-        image(catpics[randompics[1]], windowWidth / 2, windowHeight / 2, 400, 271);
-        text(catfacts[catsrandom[1]], 50, windowHeight - 75, windowWidth - 100, windowHeight -30);
-    } else if(appstate == 3) {
-        image(catpics[randompics[2]], windowWidth / 2, windowHeight / 2, 400, 266);
-        text(catfacts[catsrandom[2]], 50, windowHeight - 75, windowWidth - 100, windowHeight -30);
-    } else if(appstate == 4) {
-        image(catpics[randompics[3]], windowWidth / 2, windowHeight / 2, 400, 266);
-        text(catfacts[catsrandom[3]], 50, windowHeight - 75, windowWidth - 100, windowHeight -30);
+        
     }
 
-    pop();
+   
+    //Keeping For Now
+    // if (appstate == 0) {
+    //     image(catpics[0], windowWidth / 2, windowHeight / 2, 400, 263);
+    // } else if(appstate == 1) {
+    //     image(catpics[randompics[0]], windowWidth / 2, windowHeight / 2, 400, 266);
+    //     text(catfacts[catsrandom[0]], 50, windowHeight - 75, windowWidth - 100, windowHeight -30);
+    // } else if(appstate == 2) {
+    //     image(catpics[randompics[1]], windowWidth / 2, windowHeight / 2, 400, 271);
+    //     text(catfacts[catsrandom[1]], 50, windowHeight - 75, windowWidth - 100, windowHeight -30);
+    // } else if(appstate == 3) {
+    //     image(catpics[randompics[2]], windowWidth / 2, windowHeight / 2, 400, 266);
+    //     text(catfacts[catsrandom[2]], 50, windowHeight - 75, windowWidth - 100, windowHeight -30);
+    // } else if(appstate == 4) {
+    //     image(catpics[randompics[3]], windowWidth / 2, windowHeight / 2, 400, 266);
+    //     text(catfacts[catsrandom[3]], 50, windowHeight - 75, windowWidth - 100, windowHeight -30);
+    // }
+
+    
     
 }
 
@@ -102,21 +114,12 @@ function requestcats() {
                 // console.log(initialresponse.data[i].fact);
             }
 
-            let temporaryrandom = [];
-            for (i = 0; i < 4; i++) {
+            for (i = 0; i < maxcats; i++) {
                 catsrandom[i] = round(random(0, catfacts.length - 1));
                 randompics[i] = round(random(0, catpics.length - 1));
 
-                for(i2 = 0; i2 < temporaryrandom.length; i2++) {
-                    if(temporaryrandom[i2] == randompics[i]) {
-                        console.log("duplicate found... regenerating...");
-                        randompics[i] = round(random(0, catpics.length - 1));
-                    }
-                }
-
-                temporaryrandom.push(randompics[i]);
                 console.log("Fact " + (i + 1) + ":" + catsrandom[i]);
-                console.log("Pic " + (i + 1) + ":" + catsrandom[i]);
+                console.log("Pic " + (i + 1) + ":" + randompics[i]);
 
             }
 
@@ -129,7 +132,7 @@ function requestcats() {
         }
     };
 
-    xhttp.open("GET", "https://catfact.ninja/facts?limit=12", true);
+    xhttp.open("GET", "https://catfact.ninja/facts?limit=50", true);
     xhttp.setRequestHeader("Content-type", "application/json");
     xhttp.send();
 
@@ -138,16 +141,25 @@ function requestcats() {
 function loopcats() {
     setTimeout(function(){
 
-        if(appstate == 1) {
-            appstate++;
-            loopcats();
-        } else if(appstate == 2) {
-            appstate++;
-            loopcats();
-        } else if(appstate == 3) {
-            appstate++;
+        // if(appstate == 1) {
+        //     appstate++;
+        //     loopcats();
+        // } else if(appstate == 2) {
+        //     appstate++;
+        //     loopcats();
+        // } else if(appstate == 3) {
+        //     appstate++;
+        // }
+
+        if (appstate > 0 && maxcats > 1) {
+            if(appstate < maxcats) {
+                appstate++;
+                if(appstate < maxcats - 1) {
+                    loopcats();
+                }
+            } 
         }
-    }, 200);
+    }, 100);
 }
 
 function chatcat() {
