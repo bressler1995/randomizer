@@ -2,12 +2,12 @@
 let initialresponse;
 let catfacts = [];
 let catpics = [];
-let catpics_url = ['img/spacecat.jpg', 'img/orangecat.jpg', 'img/wildcat.jpg', 'img/yawningcat.jpg', 'img/laptopcat.gif', 'img/ceilingcat.jpg', 'img/fatcat.jpg', 'img/mow.jpg', 'img/jumpingcats.jpg', 'img/angrycat.jpg', 'img/shycat.jpg', 'img/exoticcat.jpg'];
+let catpics_url = ['img/spacecat.jpg', 'img/orangecat.jpg', 'img/wildcat.jpg', 'img/yawningcat.jpg', 'img/laptopcat.gif', 'img/ceilingcat.jpg', 'img/fatcat.jpg', 'img/mow.jpg', 'img/jumpingcats.jpg', 'img/angrycat.jpg', 'img/shycat.jpg', 'img/exoticcat.jpg', 'img/derpcat.jpg', 'img/wonderingcat.jpg'];
 let catsrandom = [], randompics = [];
 let catsset = false;
 let appstate = 0, maxcats = 7;
 let catbutton, cattitle, catmessage_opt, catwin;
-let catwidth = [400, 400, 400, 400, 300, 460, 450, 400, 400, 400, 400, 400], catheight = [263, 266, 270, 266, 300, 262, 253, 278, 266, 317, 266, 273];
+let catwidth = [400, 400, 400, 400, 300, 460, 450, 400, 400, 400, 400, 400, 400, 400], catheight = [263, 266, 270, 266, 300, 262, 253, 278, 266, 317, 266, 273, 266, 287];
 let mregular, mmedium, msemi;
 
 function preload() {
@@ -16,6 +16,10 @@ function preload() {
     // catpics[2] = loadImage(catpics_url[2]);
     // catpics[3] = loadImage(catpics_url[3]);
     // catpics[4] = loadImage(catpics_url[4]);
+
+    console.log("Cat Pic URLs: " + catpics_url.length);
+    console.log("Cat Widths: " + catwidth.length);
+    console.log("Cat Heights: " + catheight.length);
 
     for(i = 0; i < catpics_url.length; i++) {
         catpics[i] = loadImage(catpics_url[i]);
