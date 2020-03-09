@@ -7,10 +7,10 @@ let catpics_url = ['img/spacecat.jpg', 'img/orangecat.jpg', 'img/wildcat.jpg', '
 //Randomized Arrays
 let catsrandom = [], randompics = [];
 //App Globals
-let appstate = 0, maxcats = 7, loadlimit = 50;
+let appstate = 0, maxcats = 7, loadlimit = 100;
 //Elements
 let catbutton, catmessage_opt;
-let catwin, catwin_top, catwin_content, catwin_inputbar;
+let catwin, chat_button;
 //Dimensions
 let catwidth = [400, 400, 400, 400, 300, 460, 450, 400, 400, 400, 400, 400, 400, 400], 
 catheight = [263, 266, 270, 266, 300, 262, 253, 278, 266, 317, 266, 273, 266, 287];
@@ -44,14 +44,13 @@ function setup() {
     catbutton = select("#proceed_opt");
     catbutton.mousePressed(requestcats);
 
-    catmessage_opt = createButton('<i class="fas fa-comment-dots"></i>');
-    catmessage_opt.class('catmessage_opt');
+    catmessage_opt = select("#catmessage_opt");
     catmessage_opt.mousePressed(chatcat);
 
     catwin = select("#catwin");
-    catwin_top = select("#catwin_top");
-    catwin_content = select("#catwin_content");
-    catwin_inputbar = select("#catwin_inputbar");
+
+    chat_button = select("#chat_button");
+    chat_button.mousePressed(sendtocat);
 }
 
 function draw() {
@@ -175,4 +174,8 @@ function chatcat() {
     if(catwin.hasClass('showwin') == false) {
         catwin.addClass('showwin');
     }
+}
+
+function sendtocat() {
+
 }
