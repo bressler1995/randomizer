@@ -52,8 +52,8 @@ button {
   position:fixed;
   margin:0;
   font-family: 'Montserrat', sans-serif;
-  font-size:38px;
-  line-height:40px;
+  font-size:40px;
+  line-height:42px;
   top:50px;
   left:50%;
   transform: translateX(-50%);

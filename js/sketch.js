@@ -9,7 +9,7 @@ let catsrandom = [], randompics = [];
 //App Globals
 let appstate = 0, maxcats = 7, loadlimit = 50;
 //Elements
-let catbutton, cattitle, catmessage_opt;
+let catbutton, catmessage_opt;
 let catwin, catwin_top, catwin_content, catwin_inputbar;
 //Dimensions
 let catwidth = [400, 400, 400, 400, 300, 460, 450, 400, 400, 400, 400, 400, 400, 400], 
@@ -38,15 +38,11 @@ function preload() {
 }
 
 function setup() {
-    //lets make it responsive
+    //fill the whole screen
     createCanvas(windowWidth, windowHeight);
-    // requestcats();
-    catbutton = createButton('Start Chatting With Cats');
-    catbutton.id('proceed_opt');
-    catbutton.mousePressed(requestcats);
 
-    cattitle = createP("CatRoulette&trade;")
-    cattitle.class('cat_title');
+    catbutton = select("#proceed_opt");
+    catbutton.mousePressed(requestcats);
 
     catmessage_opt = createButton('<i class="fas fa-comment-dots"></i>');
     catmessage_opt.class('catmessage_opt');
@@ -73,10 +69,10 @@ function draw() {
         push();
         textFont(mregular);
         textSize(15);
-        textLeading(19);
+        textLeading(21);
         textAlign(CENTER);
         image(catpics[randompics[appstate - 1]], windowWidth / 2, windowHeight / 2, catwidth[randompics[appstate - 1]], catheight[randompics[appstate - 1]]);
-        text(catfacts[catsrandom[appstate - 1]], 50, windowHeight - 75, windowWidth - 100, windowHeight -30);
+        text(catfacts[catsrandom[appstate - 1]], 70, windowHeight - 85, windowWidth - 140, windowHeight -30);
         pop();
 
         push();
@@ -84,7 +80,7 @@ function draw() {
         textSize(20);
         textLeading(26);
         textAlign(CENTER);
-        text("BIO", 50, windowHeight - 105, windowWidth - 100, windowHeight - 80);
+        text("BIO", 70, windowHeight - 115, windowWidth - 140, windowHeight - 30);
         pop();
         
         
