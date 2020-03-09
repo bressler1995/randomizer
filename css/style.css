@@ -35,7 +35,8 @@ button {
   padding-left:35px;
   padding-right:35px;
   background: #40c2ff;
-  border:0;
+  border:none;
+  outline: 0;
   /* border: 2px solid #FFF; */
   border-radius: 3px;
   color: #FFF;
