@@ -10,7 +10,7 @@ let catsrandom = [], randompics = [];
 let appstate = 0, maxcats = 7, loadlimit = 100;
 //Elements
 let catbutton, catmessage_opt;
-let catwin, chat_input, chat_button;
+let catwin, catwin_content, chat_input, chat_button, catwin_pic;
 //Dimensions
 let catdimensions = [[400, 400, 400, 400, 300, 460, 450, 400, 400, 400, 400, 400, 400, 400], 
 [263, 266, 270, 266, 300, 262, 253, 278, 266, 317, 266, 273, 266, 287]];
@@ -48,10 +48,12 @@ function setup() {
     catmessage_opt.mousePressed(chatcat);
 
     catwin = select("#catwin");
-    chat_input = select("#chat_input");
+    catwin_content = select("#catwin_content");
 
+    chat_input = select("#chat_input");
     chat_button = select("#chat_button");
     chat_button.mousePressed(sendtocat);
+    catwin_pic = document.getElementById("catwin_pic");
 }
 
 function draw() {
@@ -174,6 +176,7 @@ function loopcats() {
 function chatcat() {
     if(catwin.hasClass('showwin') == false) {
         catwin.addClass('showwin');
+        catwin_pic.src = catpics_url[randompics[appstate - 1]];
     }
 }
 
@@ -186,12 +189,14 @@ function sendtocat() {
 }
 
 function addchat(whoami, words) {
-    // let tempchat = createP(words);
+    let tempchat = createP(words);
+    tempchat.addClass("generic_line");
     if(whoami == "you") {
-        
+        tempchat.addClass("you_line");
     } else if(whoami == "cat") {
-
+        tempchat.addClass("cat_line");
     }
 
-    alert(words);
+
+    catwin_content.child(tempchat);
 }
