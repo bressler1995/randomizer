@@ -228,3 +228,11 @@ function goagain() {
 
     mychats = [];
 }
+
+function keyPressed() {
+    if (keyCode === ENTER) {
+        if(appstate > 0 && catwin.hasClass('showwin') == true) {
+            sendtocat();
+        }
+    }
+}
