@@ -9,13 +9,14 @@ let catsrandom = [], randompics = [];
 //App Globals
 let appstate = 0, maxcats = 7, loadlimit = 100;
 //Elements
-let catbutton, catmessage_opt;
+let catbutton, catmessage_opt, catreset_opt;
 let catwin, catwin_content, chat_input, chat_button, catwin_pic, catwin_close;
 //Dimensions
 let catdimensions = [[400, 400, 400, 400, 300, 460, 450, 400, 400, 400, 400, 400, 400, 400], 
 [263, 266, 270, 266, 300, 262, 253, 278, 266, 317, 266, 273, 266, 287]];
 //Fonts
 let mregular, mmedium, msemi;
+let mytimeout;
 
 function preload() {
     // catpics[0] = loadImage(catpics_url[0]);
@@ -46,6 +47,8 @@ function setup() {
 
     catmessage_opt = select("#catmessage_opt");
     catmessage_opt.mousePressed(chatcat);
+    catreset_opt = select("#catreset_opt");
+    catreset_opt.mousePressed(goagain);
 
     catwin = select("#catwin");
     catwin_content = select("#catwin_content");
@@ -122,6 +125,7 @@ function requestcats() {
         if (this.readyState == 4 && this.status == 200) {
             initialresponse = JSON.parse(this.responseText);
             // console.log(initialresponse.data);
+            catfacts = [];
             for (i = 0; i < initialresponse.data.length; i++) {
                 catfacts.push(initialresponse.data[i].fact);
                 // console.log(initialresponse.data[i].fact);
@@ -139,6 +143,7 @@ function requestcats() {
             appstate = 1;
             catbutton.class('hide_button');
             catmessage_opt.addClass('show_opt');
+            catreset_opt.addClass('show_opt');
             loopcats();
             
         }
@@ -151,7 +156,7 @@ function requestcats() {
 }
 
 function loopcats() {
-    setTimeout(function(){
+    mytimeout = setTimeout(function(){
 
         //Also keeping for now
         // if(appstate == 1) {
@@ -207,4 +212,9 @@ function addchat(whoami, words) {
 
 
     catwin_content.child(tempchat);
+}
+
+function goagain() {
+    clearTimeout();
+    requestcats();
 }

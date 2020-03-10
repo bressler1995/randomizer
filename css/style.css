@@ -75,21 +75,45 @@ button {
   cursor: pointer;
   display: none;
   position: fixed;
-  width: 70px;
-  height: 70px;
+  width: 55px;
+  height: 55px;
   border-radius: 50%;
-  top: 38px;
+  top: 50px;
   right: 50px;
   background-color: #40c2ff;
   color: #FFF;
-  font-size: 24px;
-  line-height: 70px;
+  font-size: 18px;
+  line-height: 55px;
   text-align: center;
   border:none;
   outline: 0;
 }
 
 .catmessage_opt:hover, .catmessage_opt:active {
+  background-color: #5eccff;
+  color:#FFF;
+  transform: scale(0.9);
+}
+
+.catreset_opt {
+  cursor: pointer;
+  display: none;
+  position: fixed;
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  top: 120px;
+  right: 50px;
+  background-color: #40c2ff;
+  color: #FFF;
+  font-size: 18px;
+  line-height: 55px;
+  text-align: center;
+  border:none;
+  outline: 0;
+}
+
+.catreset_opt:hover, .catreset_opt:active {
   background-color: #5eccff;
   color:#FFF;
   transform: scale(0.9);
