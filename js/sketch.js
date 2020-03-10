@@ -7,16 +7,16 @@ let catpics_url = ['img/spacecat.jpg', 'img/orangecat.jpg', 'img/wildcat.jpg', '
 //Randomized Arrays
 let catsrandom = [], randompics = [];
 //App Globals
-let appstate = 0, maxcats = 7, loadlimit = 100;
+let appstate = 0, maxcats = 7, loadlimit = 100, mytimeout;
 //Elements
 let catbutton, catmessage_opt, catreset_opt;
 let catwin, catwin_content, chat_input, chat_button, catwin_pic, catwin_close;
+let mychats = [];
 //Dimensions
 let catdimensions = [[400, 400, 400, 400, 300, 460, 450, 400, 400, 400, 400, 400, 400, 400], 
 [263, 266, 270, 266, 300, 262, 253, 278, 266, 317, 266, 273, 266, 287]];
 //Fonts
 let mregular, mmedium, msemi;
-let mytimeout;
 
 function preload() {
     // catpics[0] = loadImage(catpics_url[0]);
@@ -194,27 +194,37 @@ function closecat() {
 }
 
 function sendtocat() {
-    addchat("you", chat_input.value());
-    chat_input.value('');
-    setTimeout(function(){
-        addchat("cat", catfacts[round(random(0, catfacts.length - 1))]);
-    }, 1000);
+    if(chat_input.value() !== "") {
+        addchat("you", chat_input.value());
+        chat_input.value('');
+        setTimeout(function(){
+            addchat("cat", catfacts[round(random(0, catfacts.length - 1))]);
+        }, 1000);
+    } else {
+        alert("Chat can't be blank");
+    }
 }
 
 function addchat(whoami, words) {
-    let tempchat = createP(words);
-    tempchat.addClass("generic_line");
+    mychats.push(createP(words));
+    mychats[mychats.length - 1].addClass("generic_line");
     if(whoami == "you") {
-        tempchat.addClass("you_line");
+        mychats[mychats.length - 1].addClass("you_line");
     } else if(whoami == "cat") {
-        tempchat.addClass("cat_line");
+        mychats[mychats.length - 1].addClass("cat_line");
     }
 
-
-    catwin_content.child(tempchat);
+    catwin_content.child(mychats[mychats.length - 1]);
 }
 
 function goagain() {
     clearTimeout();
     requestcats();
+    closecat();
+    
+    for(i = 0; i < mychats.length; i++) {
+        mychats[i].remove();
+    }
+
+    mychats = [];
 }
