@@ -216,6 +216,7 @@ function addchat(whoami, words) {
     }
 
     catwin_content.child(mychats[mychats.length - 1]);
+    catwin_content_dom.scrollTop = catwin_content_dom.scrollHeight;
 }
 
 function goagain() {
