@@ -218,13 +218,9 @@ function addchat(whoami, words) {
 }
 
 function goagain() {
-    clearTimeout();
+    clearTimeout(mytimeout);
     requestcats();
     closecat();
-    
-    for(i = 0; i < mychats.length; i++) {
-        mychats[i].remove();
-    }
 
     mychats = [];
 }
