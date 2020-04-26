@@ -10,7 +10,7 @@ let catsrandom = [], randompics = [];
 let appstate = 0, maxcats = 7, loadlimit = 100, mytimeout;
 //Elements
 let catbutton, catmessage_opt, catreset_opt;
-let catwin, catwin_content, chat_input, chat_button, catwin_pic, catwin_close;
+let catwin, catwin_content, catwin_content_dom, chat_input, chat_button, catwin_pic, catwin_close;
 let mychats = [];
 //Dimensions
 let catdimensions = [[400, 400, 400, 400, 300, 460, 450, 400, 400, 400, 400, 400, 400, 400], 
@@ -52,6 +52,7 @@ function setup() {
 
     catwin = select("#catwin");
     catwin_content = select("#catwin_content");
+    catwin_content_dom = document.getElementById("catwin_content");
     catwin_close = select("#catwin_close");
     catwin_close.mousePressed(closecat);
 
@@ -223,6 +224,7 @@ function goagain() {
     closecat();
 
     mychats = [];
+    catwin_content_dom.innerHTML = "";
 }
 
 function keyPressed() {
